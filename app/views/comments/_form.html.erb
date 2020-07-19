@@ -1,0 +1,42 @@
+<%= form_with(model: [@document, @document.comments.build], local: true) do |form| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :document_id %>
+   <strong> <%= @document.series %> <%= @document.year %> <%= @document.registrationNo %> </strong> 
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_area :status, id: :comment_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_area :reason, id: :comment_reason %>
+  </div>
+
+  <div>
+     <%= form.label :fromOffice %>
+     <%= form.text_field :fromOffice, class: 'form-control', value: current_user.office.office_name, readonly: true %>
+  </div><br>
+
+    <div class="form-group">
+    <%= form.label :office_id, "Office To post Document To:" %>
+    <%= form.collection_select :office_id, Office.order(:office_name), :id, :office_name, include_blank: true , class: "form-control", prompt:"Select Next Office" %>
+  </div><br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

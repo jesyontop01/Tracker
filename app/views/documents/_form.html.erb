@@ -1,0 +1,52 @@
+<%= form_with(model: document, local: true) do |form| %>
+  <% if document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+      <% document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+   <%= form.label :series %>
+  <%= form.select :series, options_for_select([['Select Exam Series'],['June' ,'MJ'], ['December', 'ND'], ['School Candidate', 'SC'], ['Private Candidate', 'PC']]) %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.text_field :year, id: :document_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :registrationNo,"Centre No. / Candidate Full Registration No" %>
+    <%= form.text_field :registrationNo, id: :document_registrationNo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :CandidateRange, "Specify Candidate Range" %>
+    <%= form.text_field :CandidateRange, id: :document_CandidateRange %>
+  </div>
+
+  <div class="field">
+    <%= form.label :request %>
+    <%= form.text_area :request, id: :document_request %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachment %>
+    <%= form.text_area :attachment, id: :document_attachment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email,"Applicant's Email:" %>
+    <%= form.text_field :email, id: :document_email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

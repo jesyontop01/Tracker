@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Series:</strong>
+  <%= @document.series %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @document.year %>
+</p>
+
+<p>
+  <strong>Registrationno:</strong>
+  <%= @document.registrationNo %>
+</p>
+
+<p>
+  <strong>Candidaterange:</strong>
+  <%= @document.CandidateRange %>
+</p>
+
+<p>
+  <strong>Request:</strong>
+  <%= @document.request %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= @document.attachment %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @document.email %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Document Processing Status', document_comments_path(@document) %> |
+<%= link_to 'Back', documents_path %>

@@ -1,0 +1,22 @@
+<h1>All Users</h1>
+
+<table class="table">
+<tr>
+	<th>User Name</th>
+	<th>User Email </th>
+	<th>User Office</th>
+	
+</tr>
+
+<tbody>
+	<% @users.each do |user| %>
+	<tr>
+		<td> <%= user.fullName %></td>
+	 <td> <%= user.email %></td>
+	 <td> <%= user.office.office_name %></td>
+	 <td><%= link_to 'Users', users_show_path, :class => 'navbar-link' %></td>
+	 
+	</tr>
+</tbody>
+<% end -%>
+</table>

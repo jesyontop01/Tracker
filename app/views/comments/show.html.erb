@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @comment.document %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @comment.status %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @comment.reason %>
+</p>
+
+<p>
+  <strong>Fromoffice:</strong>
+  <%= @comment.fromOffice %>
+</p>
+
+<p>
+  <strong>Tooffice:</strong>
+  <%= @comment.toOffice %>
+</p>
+
+<p>
+  <strong>Created Date:</strong>
+  <%= @comment.created_at %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
