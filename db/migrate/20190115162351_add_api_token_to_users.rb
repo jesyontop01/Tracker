@@ -1,4 +1,4 @@
-class AddApiTokenToUsers < ActiveRecord::Migration[5.1]
+class AddApiTokenToUsers < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :api_token, :string
   end
