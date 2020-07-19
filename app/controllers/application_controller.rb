@@ -1,21 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   #respond_to :json
-  before_action :authenticate_with_token
+  #before_action :authenticate_with_token
   before_action :authenticate_user!
 
    before_action :configure_permitted_parameters, if: :devise_controller?
 
    private
-   def authenticate_with_token
-   	if params[:api_token] && params[:email]
-   		user = User.find_by_api_token(params[:api_token])
-          if user.email == params[:email]
-            sign_in(user)
-          end
-   		#sign_in(user)
-   	end
-   end
+  #  def authenticate_with_token
+  #  	if params[:api_token] && params[:email]
+  #  		user = User.find_by_api_token(params[:api_token])
+  #         if user.email == params[:email]
+  #           sign_in(user)
+  #         end
+  #  		#sign_in(user)
+  #  	end
+  #  end
 
   protected
 

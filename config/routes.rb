@@ -22,7 +22,15 @@ Rails.application.routes.draw do
     end
   end
 
-
+    #namespace :api, defaults: {format: 'json'}, path: '', constraints: {subdomain: 'api'} do
+    namespace :api do
+        namespace :v1 do
+          resources :users
+          resources :documents do
+        resources :comments
+        end
+      end
+    end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
