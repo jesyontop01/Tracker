@@ -6,8 +6,10 @@ class API::V1::CommentsController < API::APIController
   # GET /comments
   # GET /comments.json
   def index
-    @document = Document.find(params[:document_id])
-    @comments = @document.comments.all.order('created_at Desc')
+
+      @document = Document.find(params[:document_id])
+      @comments = @document.comments.all.order('created_at Desc')
+ 
     render json: {status: 'SUCCESS', message: 'Loaded @comments', data: @comments}, status: :ok
   end
 

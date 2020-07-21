@@ -30,9 +30,14 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save 
-        #Status.create(document_id: @document.id, arrivalFrom: current_user.office.office_name)
-        #@document = Document.find(params[:document_id])
-       #@comment =@document.comments.create(document_id: @document.id, fromOffice: current_user.office.office_name)
+        
+        #@serial_no = 10
+ 
+         #@my_reference = @document.registrationNo[0,1].to_s + @document.year.to_s + @serial_no.to_s[1,8]
+         @my_reference = @document.registrationNo[0,3].to_s + 1000.to_s + @document.id.to_s
+
+         @document.update(:trackID => @my_reference)
+
         if @document.series == "MJ" || @document.series=="SC"
            #@comment.office_id = 1
             Comment.create(document_id: @document.id, fromOffice: current_user.office.office_name, office_id: 1)
@@ -85,7 +90,7 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:series, :year, :registrationNo, :CandidateRange, :request, :attachment, :email)
+      params.require(:document).permit(:series, :year, :registrationNo, :CandidateRange, :request, :attachment, :email, :trackID)
     end
 
     def comment_params

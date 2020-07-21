@@ -2,7 +2,7 @@ class API::APIController < ActionController::Base
     #class Api::ApiController < ActionController::Base
     # Authentication and functionality common to all API endpoint controllers.
 
-    before_action :authenticate_with_token
+    #before_action :authenticate_with_token
   
 
   

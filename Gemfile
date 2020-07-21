@@ -51,6 +51,9 @@ gem 'flexible_permissions'
 gem 'rack-attack'
 gem 'redis-activesupport'
 
+#Using FriendlyID
+gem 'friendly_id'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
